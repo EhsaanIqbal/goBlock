@@ -5,7 +5,6 @@ import (
 	"crypto/sha256"
 	"encoding/binary"
 	"fmt"
-	"log"
 	"math"
 	"math/big"
 )
@@ -84,9 +83,7 @@ func ToByte(num int64) []byte {
 	buff := new(bytes.Buffer)
 	err := binary.Write(buff, binary.BigEndian, num)
 
-	if err != nil {
-		log.Panic(err)
-	}
+	Handle(err)
 
 	return buff.Bytes()
 }
